@@ -1,15 +1,5 @@
 #!/bin/bash
 
-#SBATCH --partition=bgmp
-#SBATCH --account=bgmp
-#SBATCH --job-name=trim_primers
-#SBATCH --output=LOG/trim_primers_%j.out
-#SBATCH --error=LOG/trim_primers_%j.err
-#SBATCH --time=10-00:00:00           
-#SBATCH --mail-type=BEGIN,END
-#SBATCH --mail-user=ghach@uoregon.edu
-#SBATCH --mem=64G
-
 conda activate htstream
 
 source_dir1="/projects/bgmp/shared/groups/2024/novel-fluor/shared/upload/NovaSeq_merged/blue/" 
