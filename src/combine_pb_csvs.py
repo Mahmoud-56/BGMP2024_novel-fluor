@@ -4,29 +4,32 @@
 import pandas as pd
 import os 
 
-red_csv_files = csv_files = [
-            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_pacbio_output/red/09_final_output/redreads.0--0-final.csv',
-            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_pacbio_output/red/09_final_output/redreads.1--1-final.csv',
-            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_pacbio_output/red/09_final_output/redreads.2--2-final.csv',
-            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_pacbio_output/red/09_final_output/redreads.3--3-final.csv',
-            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_pacbio_output/red/09_final_output/redreads.4--4-final.csv',
-            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_pacbio_output/red/09_final_output/redreads.5--5-final.csv',
-            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_pacbio_output/red/09_final_output/redreads.6--6-final.csv',
-            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_pacbio_output/red/09_final_output/redreads.7--7-final.csv',
-            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_pacbio_output/red/09_final_output/redreads.8--8-final.csv'
-]
+
 
 
 blue_csv_files = csv_files = [
-            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_pacbio_output/blu/09_final_output/bluereads.0--0-final.csv',
-            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_pacbio_output/blu/09_final_output/bluereads.1--1-final.csv',
-            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_pacbio_output/blu/09_final_output/bluereads.2--2-final.csv',
-            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_pacbio_output/blu/09_final_output/bluereads.3--3-final.csv',
-            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_pacbio_output/blu/09_final_output/bluereads.4--4-final.csv',
-            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_pacbio_output/blu/09_final_output/bluereads.5--5-final.csv',
-            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_pacbio_output/blu/09_final_output/bluereads.6--6-final.csv',
-            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_pacbio_output/blu/09_final_output/bluereads.7--7-final.csv',
-            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_pacbio_output/blu/09_final_output/bluereads.8--8-final.csv'
+            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_results/BLUE/09_final_output/m64047_230308_062131.ccs.0--0-final.csv',
+            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_results/BLUE/09_final_output/m64047_230308_062131.ccs.1--1-final.csv',
+            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_results/BLUE/09_final_output/m64047_230308_062131.ccs.2--2-final.csv',
+            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_results/BLUE/09_final_output/m64047_230308_062131.ccs.3--3-final.csv',
+            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_results/BLUE/09_final_output/m64047_230308_062131.ccs.4--4-final.csv',
+            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_results/BLUE/09_final_output/m64047_230308_062131.ccs.5--5-final.csv',
+            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_results/BLUE/09_final_output/m64047_230308_062131.ccs.6--6-final.csv',
+            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_results/BLUE/09_final_output/m64047_230308_062131.ccs.7--7-final.csv',
+            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_results/BLUE/09_final_output/m64047_230308_062131.ccs.8--8-final.csvv'
+]            
+
+
+red_csv_files = csv_files = [
+            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_results/RED/09_final_output/m64047_230306_210601.ccs.0--0-final.csv',
+            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_results/RED/09_final_output/m64047_230306_210601.ccs.1--1-final.csv',
+            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_results/RED/09_final_output/m64047_230306_210601.ccs.2--2-final.csv',
+            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_results/RED/09_final_output/m64047_230306_210601.ccs.3--3-final.csv',
+            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_results/RED/09_final_output/m64047_230306_210601.ccs.4--4-final.csv',
+            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_results/RED/09_final_output/m64047_230306_210601.ccs.5--5-final.csv',
+            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_results/RED/09_final_output/m64047_230306_210601.ccs.6--6-final.csv',
+            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_results/RED/09_final_output/m64047_230306_210601.ccs.7--7-final.csv',
+            '/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_results/RED/09_final_output/m64047_230306_210601.ccs.8--8-final.csv'
 ]
 
 

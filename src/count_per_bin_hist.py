@@ -3,41 +3,27 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-#Blu bin
 
-# Load the CSV file,  assuming no header
-df1 = pd.read_csv("/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_pacbio_output/blu/09_final_output/bluereads.0--0-final.csv", header=None, usecols=[0, 1], names=["UMI", "Count"])
-
-# Convert 'Count' column to numeric, handling any non-numeric values
-df1["Count"] = pd.to_numeric(df1["Count"], errors='coerce')
-
-# Summary statistics for the 'Count' column
-print(df1["Count"].describe())
+input_file1 = "/projects/bgmp/shared/groups/2024/novel-fluor/malm/BGMP2024_novel-fluor/reports/red_counts_per_bin.csv" 
+data = pd.read_csv(input_file1)
 
 
-# Plot the histogram for the 'Count' column
-plt.figure(figsize=(10, 6))
-plt.hist(df1["Count"], bins=30, color='skyblue', edgecolor='black', log=True)
-plt.xlabel("Count")
-plt.ylabel("Frequency")
-plt.title("Histogram of UMI Counts (Log Scale)")
-plt.savefig("blu_bin1_UMI_counts.png")
+bin_columns = [f"Counts_Bin{i}" for i in range(1, 10)]
+
+bin_totals = data[bin_columns].sum()
+
+print(bin_totals)
 
 
-#Red bin
 
-df2 = pd.read_csv("/projects/bgmp/shared/groups/2024/novel-fluor/shared/dat/NF_pacbio_output/red/09_final_output/redreads.0--0-final.csv",header=None,usecols=[0, 1], names=["UMI", "Count"])
 
-# Convert 'Count' column to numeric, handling any non-numeric values
-df2["Count"] = pd.to_numeric(df1["Count"], errors='coerce')
+# plt.figure(figsize=(10, 6))
+plt.bar(bin_totals.index, bin_totals.values, color='darkblue')
+plt.xlabel("Bins", fontsize=14)
+plt.ylabel("Total Counts", fontsize=14)
+plt.title("Red Proteins Counts Per Bin", fontsize=16)
+plt.xticks(rotation=45)
+plt.yscale("log")
+plt.tight_layout()
 
-# Summary statistics for the 'Count' column
-print(df2["Count"].describe())
-
-# Plot the histogram for the 'Count' column
-plt.figure(figsize=(10, 6))
-plt.hist(df2["Count"], bins=30, color='red', edgecolor='black', log=True)
-plt.xlabel("Count")
-plt.ylabel("Frequency")
-plt.title("Histogram of UMI Counts (Log Scale)")
-plt.savefig("red_bin1_UMI_counts.png")
+plt.savefig("Red-prot-counts-per-bin.png")

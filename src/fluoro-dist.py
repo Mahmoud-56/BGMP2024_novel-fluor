@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-data_file = "/projects/bgmp/shared/groups/2024/novel-fluor/malm/BGMP2024_novel-fluor/reports/blue_MEF.tsv"  
+data_file = "/projects/bgmp/shared/groups/2024/novel-fluor/ghach/BGMP2024_novel-fluor/reports/blue_MEF_FINAL.tsv"  
 df = pd.read_csv(data_file)
 
 
